@@ -1,0 +1,188 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>freshpress_plugins</Name>
+    <ProjectGuid>{a268d185-9ee0-4625-af53-ec90b90057fb}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="debug\admin\debuglog.php" />
+    <Compile Include="debug\admin\setting.php" />
+    <Compile Include="debug\functions\function.php" />
+    <Compile Include="debug\functions\plugin.php" />
+    <Compile Include="debug\debug.php" />
+    <Compile Include="debug\readme.txt" />
+    <Compile Include="debug-bar\css\debug-bar.css" />
+    <Compile Include="debug-bar\css\debug-bar.dev.css" />
+    <Compile Include="debug-bar\js\debug-bar-js.dev.js" />
+    <Compile Include="debug-bar\js\debug-bar-js.js" />
+    <Compile Include="debug-bar\js\debug-bar.dev.js" />
+    <Compile Include="debug-bar\js\debug-bar.js" />
+    <Compile Include="debug-bar\js\ui-dockable.dev.js" />
+    <Compile Include="debug-bar\js\ui-dockable.js" />
+    <Compile Include="debug-bar\panels\class-debug-bar-deprecated.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-js.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-object-cache.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-panel.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-php.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-queries.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-request.php" />
+    <Compile Include="debug-bar\panels\class-debug-bar-wp-query.php" />
+    <Compile Include="debug-bar\compat.php" />
+    <Compile Include="debug-bar\debug-bar.php" />
+    <Compile Include="debug-bar\readme.txt" />
+    <Compile Include="debug-bar-actions-and-filters-addon\css\debug-bar-actions-filters.css" />
+    <Compile Include="debug-bar-actions-and-filters-addon\languages\debug-bar-actions-and-filters-addon.pot" />
+    <Compile Include="debug-bar-actions-and-filters-addon\tests\callback_type_tests.php" />
+    <Compile Include="debug-bar-actions-and-filters-addon\tests\callback_type_with_namespace_tests.php" />
+    <Compile Include="debug-bar-actions-and-filters-addon\class-debug-bar-action-and-filters-addon.php" />
+    <Compile Include="debug-bar-actions-and-filters-addon\debug-bar-action-and-filters-addon.php" />
+    <Compile Include="debug-bar-actions-and-filters-addon\php5.3-closure-test.php" />
+    <Compile Include="debug-bar-actions-and-filters-addon\readme.txt" />
+    <Compile Include="debug-bar-list-dependencies\css\debug-bar-list-deps.css" />
+    <Compile Include="debug-bar-list-dependencies\css\debug-bar-list-deps.min.css" />
+    <Compile Include="debug-bar-list-dependencies\css\index.php" />
+    <Compile Include="debug-bar-list-dependencies\languages\debug-bar-list-dependencies-nl_NL.mo" />
+    <Compile Include="debug-bar-list-dependencies\languages\debug-bar-list-dependencies-nl_NL.po" />
+    <Compile Include="debug-bar-list-dependencies\languages\debug-bar-list-dependencies.pot" />
+    <Compile Include="debug-bar-list-dependencies\languages\index.php" />
+    <Compile Include="debug-bar-list-dependencies\class-debug-bar-list-dependencies.php" />
+    <Compile Include="debug-bar-list-dependencies\debug-bar-list-dependencies.php" />
+    <Compile Include="debug-bar-list-dependencies\index.php" />
+    <Compile Include="debug-bar-list-dependencies\readme.txt" />
+    <Compile Include="external-db-auth-reloaded\external-db-en_US.mo" />
+    <Compile Include="external-db-auth-reloaded\external-db-en_US.po" />
+    <Compile Include="external-db-auth-reloaded\external_db_auth.php" />
+    <Compile Include="external-db-auth-reloaded\medoo.php" />
+    <Compile Include="external-db-auth-reloaded\readme.txt" />
+    <Compile Include="external-db-auth-reloaded\screenshot-1.png" />
+    <Compile Include="external-db-auth-reloaded\screenshot-2.gif" />
+    <Compile Include="external-db-auth-reloaded\screenshot-3.gif" />
+    <Compile Include="query-monitor\assets\compat.css" />
+    <Compile Include="query-monitor\assets\query-monitor.css" />
+    <Compile Include="query-monitor\assets\query-monitor.js" />
+    <Compile Include="query-monitor\classes\Backtrace.php" />
+    <Compile Include="query-monitor\classes\Collector.php" />
+    <Compile Include="query-monitor\classes\Collectors.php" />
+    <Compile Include="query-monitor\classes\debug_bar.php" />
+    <Compile Include="query-monitor\classes\debug_bar_panel.php" />
+    <Compile Include="query-monitor\classes\Dispatcher.php" />
+    <Compile Include="query-monitor\classes\Dispatchers.php" />
+    <Compile Include="query-monitor\classes\Output.php" />
+    <Compile Include="query-monitor\classes\Plugin.php" />
+    <Compile Include="query-monitor\classes\Util.php" />
+    <Compile Include="query-monitor\collectors\admin.php" />
+    <Compile Include="query-monitor\collectors\assets.php" />
+    <Compile Include="query-monitor\collectors\cache.php" />
+    <Compile Include="query-monitor\collectors\conditionals.php" />
+    <Compile Include="query-monitor\collectors\db_callers.php" />
+    <Compile Include="query-monitor\collectors\db_components.php" />
+    <Compile Include="query-monitor\collectors\db_dupes.php" />
+    <Compile Include="query-monitor\collectors\db_queries.php" />
+    <Compile Include="query-monitor\collectors\debug_bar.php" />
+    <Compile Include="query-monitor\collectors\environment.php" />
+    <Compile Include="query-monitor\collectors\hooks.php" />
+    <Compile Include="query-monitor\collectors\http.php" />
+    <Compile Include="query-monitor\collectors\languages.php" />
+    <Compile Include="query-monitor\collectors\overview.php" />
+    <Compile Include="query-monitor\collectors\php_errors.php" />
+    <Compile Include="query-monitor\collectors\redirects.php" />
+    <Compile Include="query-monitor\collectors\request.php" />
+    <Compile Include="query-monitor\collectors\rewrites.php" />
+    <Compile Include="query-monitor\collectors\theme.php" />
+    <Compile Include="query-monitor\collectors\transients.php" />
+    <Compile Include="query-monitor\dispatchers\AJAX.php" />
+    <Compile Include="query-monitor\dispatchers\Html.php" />
+    <Compile Include="query-monitor\dispatchers\Redirect.php" />
+    <Compile Include="query-monitor\dispatchers\REST.php" />
+    <Compile Include="query-monitor\output\headers\overview.php" />
+    <Compile Include="query-monitor\output\headers\php_errors.php" />
+    <Compile Include="query-monitor\output\headers\redirects.php" />
+    <Compile Include="query-monitor\output\html\admin.php" />
+    <Compile Include="query-monitor\output\html\assets.php" />
+    <Compile Include="query-monitor\output\html\conditionals.php" />
+    <Compile Include="query-monitor\output\html\db_callers.php" />
+    <Compile Include="query-monitor\output\html\db_components.php" />
+    <Compile Include="query-monitor\output\html\db_dupes.php" />
+    <Compile Include="query-monitor\output\html\db_queries.php" />
+    <Compile Include="query-monitor\output\html\debug_bar.php" />
+    <Compile Include="query-monitor\output\html\environment.php" />
+    <Compile Include="query-monitor\output\html\hooks.php" />
+    <Compile Include="query-monitor\output\html\http.php" />
+    <Compile Include="query-monitor\output\html\languages.php" />
+    <Compile Include="query-monitor\output\html\overview.php" />
+    <Compile Include="query-monitor\output\html\php_errors.php" />
+    <Compile Include="query-monitor\output\html\request.php" />
+    <Compile Include="query-monitor\output\html\rewrites.php" />
+    <Compile Include="query-monitor\output\html\theme.php" />
+    <Compile Include="query-monitor\output\html\transients.php" />
+    <Compile Include="query-monitor\output\Headers.php" />
+    <Compile Include="query-monitor\output\Html.php" />
+    <Compile Include="query-monitor\wp-content\db.php" />
+    <Compile Include="query-monitor\composer.json" />
+    <Compile Include="query-monitor\LICENSE" />
+    <Compile Include="query-monitor\query-monitor.php" />
+    <Compile Include="query-monitor\readme.txt" />
+    <Compile Include="rejsm_add_users_from_rejsm_old\includes\rejsm_script_add_users.php" />
+    <Compile Include="rejsm_add_users_from_rejsm_old\includes\rejsm_script_delete_users.php" />
+    <Compile Include="rejsm_add_users_from_rejsm_old\rejsm_users_add_metadata.php" />
+    <Compile Include="rejsm_superwtyczka\includes\css\css_style_dane_demograficzne.css" />
+    <Compile Include="rejsm_superwtyczka\includes\images\logo-login.gif" />
+    <Compile Include="rejsm_superwtyczka\includes\images\logo-login.png" />
+    <Compile Include="rejsm_superwtyczka\includes\js\js_pesel_verification.js" />
+    <Compile Include="rejsm_superwtyczka\includes\js\rejsm_pesel_check.js" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_authenticate_by_pesel.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_custom_design.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_form_dane_demograficzne.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_new_post_type_badanie.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_registration_form_customize.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_users_possibilities.php" />
+    <Compile Include="rejsm_superwtyczka\includes\rejsm_validate_pesel.php" />
+    <Compile Include="rejsm_superwtyczka\rejsm_superwtyczka.php" />
+    <Compile Include="index.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="debug\admin" />
+    <Folder Include="debug\functions" />
+    <Folder Include="debug" />
+    <Folder Include="debug-bar\css" />
+    <Folder Include="debug-bar\js" />
+    <Folder Include="debug-bar\panels" />
+    <Folder Include="debug-bar" />
+    <Folder Include="debug-bar-actions-and-filters-addon\css" />
+    <Folder Include="debug-bar-actions-and-filters-addon\languages" />
+    <Folder Include="debug-bar-actions-and-filters-addon\tests" />
+    <Folder Include="debug-bar-actions-and-filters-addon" />
+    <Folder Include="debug-bar-list-dependencies\css" />
+    <Folder Include="debug-bar-list-dependencies\languages" />
+    <Folder Include="debug-bar-list-dependencies" />
+    <Folder Include="external-db-auth-reloaded" />
+    <Folder Include="freshpress" />
+    <Folder Include="query-monitor\assets" />
+    <Folder Include="query-monitor\classes" />
+    <Folder Include="query-monitor\collectors" />
+    <Folder Include="query-monitor\dispatchers" />
+    <Folder Include="query-monitor\languages" />
+    <Folder Include="query-monitor\output\headers" />
+    <Folder Include="query-monitor\output\html" />
+    <Folder Include="query-monitor\output" />
+    <Folder Include="query-monitor\wp-content" />
+    <Folder Include="query-monitor" />
+    <Folder Include="rejsm_add_users_from_rejsm_old\includes" />
+    <Folder Include="rejsm_add_users_from_rejsm_old" />
+    <Folder Include="rejsm_superwtyczka\includes\css" />
+    <Folder Include="rejsm_superwtyczka\includes\images" />
+    <Folder Include="rejsm_superwtyczka\includes\js" />
+    <Folder Include="rejsm_superwtyczka\includes" />
+    <Folder Include="rejsm_superwtyczka" />
+  </ItemGroup>
+</Project>
