@@ -1,19 +1,24 @@
 <?php
-
-//add_menu_page( 'admin', 'rejsm_delete_users_oldrejsm');
-function rejsm_delete_users_oldrejsm(){
-
-    $user_count = count_users();
-    //var_dump ($user_count);
-    for ($i = 2; $i < $user_count['total_users']-1; $i++) {
-        wp_delete_user( $i);
-    }
-    $user_count = count_users();
-    if ( $user_count['total_users'] == 1) {
-        echo '<div id="message" class="updated">Pomy�lnie wykonano skrypt.</div>';
+function rejsm_delete_users_oldrejsm( $role = 'subscriber' ) {
+    $users = get_users(
+            array (
+                'role' => $role
+            )
+        );
+    if ( is_array ($users ) ) {
+        foreach ( $users as $user ) {
+            wp_delete_user( $user->ID);
+        }
     }
     else {
-        echo '<div id="message" class="error">Zaistnia� b��d podczas wykonywania skryptu.</div>';
+        return  new WP_Error('broke', __("Brak użytkowników."));
     }
 }
+$return = rejsm_delete_users_oldrejsm();
+    if (is_wp_error( $return )) {
+        echo '<div id="message" class="error">Zaistniał błąd podczas wykonywania skryptu. '.$return->get_error_message().'</div>';
+    }
+    else {
+        echo '<div id="message" class="updated">Pomyślnie wykonano skrypt - usunięto użytkowników. </div>';
+    }
 ?>

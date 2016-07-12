@@ -33,6 +33,7 @@ function rejsm_users_add_settings_page(){
     <!--<a href=".?dodaj=true"  class="button-primary">Dodaj użytkowników</a>-->
     <form action="#" method="post">
     <button type="submit" name="dodaj" value="true" class="button-primary">Dodaj użytkowników</button>
+    <button type="submit" name="usun" value="true" class="button-secondary">Usuń użytkowników</button>
 </form>
     <p>Po wykonaniu tej operacji usuń ręcznie zbędne tabele.</p>
     <?php
@@ -40,6 +41,13 @@ function rejsm_users_add_settings_page(){
         $select1 = $_POST['dodaj'];
         if ( $select1 == "true" ) {
             require_once dirname( __FILE__).'/includes/rejsm_script_add_users.php' ;
+        }
+    }
+
+    if (isset($_POST['usun'])) {
+        $select2 = $_POST['usun'];
+        if ( $select2 == "true" ) {
+            require_once dirname( __FILE__).'/includes/rejsm_script_delete_users.php' ;
         }
     }
 }

@@ -3,3 +3,16 @@
 ################################################################################
 
 /.vs/freshpress_plugins/v14
+/debug
+/debug-bar
+/debug-bar-actions-and-filters-addon/css
+/debug-bar-actions-and-filters-addon/languages
+/debug-bar-actions-and-filters-addon/tests
+/debug-bar-actions-and-filters-addon
+/debug-bar-list-dependencies
+/external-db-auth-reloaded
+/query-monitor
+/rejsm_superwtyczka.rar
+/rejsm_superwtyczka2.rar
+/rejsm_add_users_from_resjm_old-dziwne
+/rejsm_users_add_metadata
