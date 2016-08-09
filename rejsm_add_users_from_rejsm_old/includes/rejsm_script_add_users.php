@@ -12,12 +12,6 @@ function rejsm_add_users_oldrejsm( $role = 'subscriber' ) {
     }
     else {
         foreach ($dane_patient as $row_dane) {
-            $userdata = array(
-                'user_login' => rejsm_user_login ($row_dane->{'email'}),
-                'user_email' => 'test_'.$row_dane->{'email'},
-                'user_pass' => $row_dane->{'password'}
-                );
-            $user_created_new_id = wp_insert_user( $userdata);
             if (is_wp_error ($user_created_new_id)){
                 return  new WP_Error('broke', __("Błąd podczas tworzenia użytkownika. ".$user_created_new_id->get_error_message()));
             }
@@ -29,7 +23,14 @@ function rejsm_add_users_oldrejsm( $role = 'subscriber' ) {
                     return new WP_Error('broke', __("Błąd podczas pobierania metadanych. ".$wpdb->print_error) );
                 }
                 else if ( $row->{'Deleted'} == 0 ) {
-                    add_user_meta( $user_created_new_id, 'pesel', $row->{'Pesel'} );
+                $userdata = array(
+                    //'user_login' => rejsm_user_login ($row_dane->{'email'}),
+                    'user_login' => $row->{'Pesel'},
+                    'user_email' => 'test_'.$row_dane->{'email'},
+                    'user_pass' => $row_dane->{'password'}
+                    );
+                    $user_created_new_id = wp_insert_user( $userdata);
+                    //add_user_meta( $user_created_new_id, 'pesel', $row->{'Pesel'} );
                     add_user_meta( $user_created_new_id, 'plec', $row->{'Plec'} );
                     add_user_meta( $user_created_new_id, 'miejsce_zamieszkania', $row->{'MiejsceZamieszkania'} );
                     add_user_meta( $user_created_new_id, 'wojewodztwo', $row->{'Wojewodztwo'} );

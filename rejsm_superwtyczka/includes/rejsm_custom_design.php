@@ -22,7 +22,6 @@ function change_title_on_logo() {
 add_filter('login_headertitle', 'change_title_on_logo');
 
 // Admin footer modification
-
 function remove_footer_admin ()
 {
     echo '<span id="footer-thankyou">Content-related supervision by dr n. med. Waldemar Brola, dr n. med. Małgorzata Fudala. Technological supervision by dr inż. Stanisław Flaga. Designed by <a href="http://www.github.com/mrevening" target="_blank">mrevening</a></span>';
@@ -37,4 +36,19 @@ function custom_admin_logo() {
     ';
 }
 add_action('admin_head', 'custom_admin_logo');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
