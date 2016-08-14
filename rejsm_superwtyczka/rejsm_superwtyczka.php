@@ -15,8 +15,11 @@ require_once dirname(__FILE__) . '/includes/rejsm_registration_form_customize.ph
 require_once dirname(__FILE__) . '/includes/rejsm_new_post_type_badanie.php';
 require_once dirname(__FILE__) . '/includes/rejsm_users_possibilities.php';
 require_once dirname(__FILE__) . '/includes/rejsm_form_dane_demograficzne.php';
+//require_once dirname(__FILE__) . '/includes/rejsm_dane_demograficzne_post_type.php';
+require_once dirname(__FILE__) . '/includes/szpital_as_a_taxonomy_for_users.php';
 require_once dirname(__FILE__) . '/includes/rejsm_custom_design.php';
 require_once dirname(__FILE__) . '/includes/rejsm_change_username_text.php';
+
 
 
 ?>

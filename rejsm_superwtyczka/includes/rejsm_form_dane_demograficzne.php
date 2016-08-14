@@ -58,7 +58,7 @@ add_action( 'edit_user_profile', 'rejsm_display_danedemograficzne_metadata' );
 function rejsm_display_danedemograficzne_metadata( $user ){
 
     $userrole = $user->roles;
-    if ($userrole[0] == 'subscriber')
+    if ($userrole == 'pacjent')
     {
         $userid = $user->ID;
         //$pesel = get_user_meta( $userid, 'pesel', true );
@@ -74,27 +74,21 @@ function rejsm_display_danedemograficzne_metadata( $user ){
         $sm_w_rodzinie = get_user_meta( $userid, 'sm_w_rodzinie', true );
         $inicjaly = get_user_meta( $userid, 'inicjaly', true );
         $data_zgonu = get_user_meta( $userid, 'data_zgonu', true );
-
-
+        //$pesel = $user->username;
+        $user_info = get_userdata(1);
+        $pesel = $user_info->user_login;
     ?>
         <h2>Dane demograficzne</h2>
         <table class="form-table">
-            <!--<tr>
-                <th scope="row">Pesel <i>(wymagane)</i></th>
-                <td>
-                    <input type="text" value="-->
-    <?php// echo $pesel; ?> 
-    <!--"id ="pesel" name="key_pesel" maxlength="11" disabled />-->
-                    <!--<span class="description">Pesel użytkowników nie może być zmieniany</span>
-                </td>
-            </tr>-->
-            <tr>
+           <tr>
                 <th scope="row">Płeć</th>
                 <td>
-                    <select id="plec" name="key_plec">
-                        <option value="0" <?php selected( '0', $plec); ?> ></option>
-                        <option value="1" <?php selected( '1', $plec); ?> >Mężczyzna</option>
-                        <option value="2" <?php selected( '2', $plec); ?> >Kobieta</option>
+                    <select id="plec" name="key_plec" disabled>
+                        <?php if ( substr( $pesel, 8, 1) % 2 == 0 ) { ?>
+                        <option value="1" <?php selected( '1', $plec); ?> Mężczyzna</option>
+                        <?php } else { ?>
+                        <option value="2" <?php selected( '2', $plec); ?> Kobieta</option>
+                        <?php } ?>
                     </select>
                 </td>
             </tr>
@@ -210,13 +204,6 @@ function rejsm_display_danedemograficzne_metadata( $user ){
                         <option value="1" <?php selected( '1', $sm_w_rodzinie); ?>>Tak</option>
                         <option value="2" <?php selected( '2', $sm_w_rodzinie); ?>>Nie</option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Inicjały</th>
-                <td>
-                    <input type="text" value="<?php echo $inicjaly; ?>" id="inicjaly" name="key_inicjaly" maxlength="3" />
-                    <span class="description">Pierwsza litera imienia i dwie pierwsze nazwiska</span>
                 </td>
             </tr>
             <tr>
