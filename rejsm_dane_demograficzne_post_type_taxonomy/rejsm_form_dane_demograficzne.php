@@ -19,7 +19,7 @@ if ( ! current_user_can('administrator') ) { //nie wyświetlaj danych demografic
     add_action( 'profile_personal_options', 'rejsm_display_danedemograficzne_metadata' ); //dodaje treść za sekcją personalizacja
 }
 //
-//add_action( 'user_new_form', 'rejsm_display_pesel_metadata' );
+add_action( 'user_new_form', 'rejsm_display_pesel_metadata' );
 function rejsm_display_pesel_metadata( $user ){
 ?>
         <table class="form-table">
@@ -58,7 +58,7 @@ add_action( 'edit_user_profile', 'rejsm_display_danedemograficzne_metadata' );
 function rejsm_display_danedemograficzne_metadata( $user ){
 
     $userrole = $user->roles;
-    if ($userrole == 'pacjent')
+ //   if ($userrole == 'pacjent')
     {
         $userid = $user->ID;
         //$pesel = get_user_meta( $userid, 'pesel', true );

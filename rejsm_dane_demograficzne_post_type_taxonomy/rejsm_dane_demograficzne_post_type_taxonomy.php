@@ -12,7 +12,8 @@ License: GPLv2
 
 add_action( 'init', 'rejsm_register_dane_demograficzne_post_type' );
 function rejsm_register_dane_demograficzne_post_type() {
-    $args = array (
+
+    register_post_type( 'dane_demograficzne', array (
         'public' => true,
         'query_var' => 'dane_demograficzne',
         'rewrite' => array(
@@ -28,18 +29,19 @@ function rejsm_register_dane_demograficzne_post_type() {
         'labels' => array(
             'name' => 'Dane demograficzne',
             'singular_name' => 'Dana demograficzna',
-            'add_new' => 'Dodaj nową daną demograficzną',
+            'add_new' => 'Dodaj nową',
             'add_new_item' => 'Dodaj nową daną demograficzną',
             'edit_item' => 'Edytuj dane demograficzne',
             'new_item' => 'Nowa dana demograficzna',
             'view_item' => 'Wyświetl dana demograficzną',
             'search_items' => 'Szukaj w danych demograficznych',
             'not_found' => 'Nie znaleziono danych demograficznych',
-            'not_found_in_trash' => 'Nie znaleziono danych demograficznych w koszu'
+            'not_found_in_trash' => 'Nie znaleziono danych demograficznych w koszu',
+            'name_admin_bar' => 'Daną demograficzną',
+            'all_items' => "Wszystkie"
         ),
-    );
-    /* Rejestracja typu wpisu bloga music_album. */
-    register_post_type( 'dane_demograficzne', $args );
+        'description' => 'Zbiór informacji prywatnych o pacjentach.',
+    ) ); 
 }
 
 
@@ -153,6 +155,7 @@ function my_edit_dane_demograficzne_columns( $columns ) {
 		'cb' => '<input type="checkbox" />',
 		'title' => __( 'Pesel' ),
 		'plec' => __( 'Płeć' ),
+        'miejsce_zamieszkania' => __( 'Miejsce zamieszkania' ),
 		'date' => __( 'Date' )
 	);
 
@@ -218,7 +221,6 @@ function my_manage_dane_demograficzne_columns( $column, $post_id ) {
 }
 
 add_filter( 'manage_edit-dane_demograficzne_sortable_columns', 'dane_demograficzne_sortable_columns' );
-
 function dane_demograficzne_sortable_columns( $columns ) {
 
 	$columns['plec'] = 'plec';
@@ -260,28 +262,28 @@ function my_sort_dane_demograficzne( $vars ) {
 
 
 
-add_action( 'post_creation_limits_custom_checks', 'post_per_day_limit' );
+//add_action( 'post_creation_limits_custom_checks', 'post_per_day_limit' );
 
-function post_per_author_limit( $type, $user_id ) {
-    global $wpdb;
+//function post_per_author_limit( $type, $user_id ) {
+//    global $wpdb;
 
-    $time_in_days = 1; // 1 means in last day
-    $count = $wpdb->get_var(
-        $wpdb->prepare("
-            SELECT COUNT(*) 
-            FROM $wpdb->posts 
-            WHERE post_status = 'publish' 
-            AND post_type = %s 
-            AND post_author = %s",
-            $type,
-            $user_id
-        )
-    );
-    if ( 1 < $count ) {
-        // return limit reached message using the plugin class
-        exit( $bapl->bapl_not_allowed( 'you can not posts more them two posts a day' ) );
-    }
-}
+//    $time_in_days = 1; // 1 means in last day
+//    $count = $wpdb->get_var(
+//        $wpdb->prepare("
+//            SELECT COUNT(*) 
+//            FROM $wpdb->posts 
+//            WHERE post_status = 'publish' 
+//            AND post_type = %s 
+//            AND post_author = %s",
+//            $type,
+//            $user_id
+//        )
+//    );
+//    if ( 1 < $count ) {
+//        // return limit reached message using the plugin class
+//        exit( $bapl->bapl_not_allowed( 'you can not posts more them two posts a day' ) );
+//    }
+//}
 
 
 //private post 
